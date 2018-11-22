@@ -30,16 +30,22 @@
 	return self.parser.subtitleItems;
 }
 
-+ (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel error:(NSError **)error {
++ (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel topLabel:(UILabel *)subtitleTopLabel error:(NSError **)error {
 	PLVSubtitleManager *manager = [[PLVSubtitleManager alloc] init];
 	manager.parser = [PLVSubtitleParser parserWithSubtitle:subtitle error:error];
 	manager.viewModel.subtitleLabel = subtitleLabel;
+    manager.viewModel.subtitleTopLabel = subtitleTopLabel;
 	return manager;
 }
 
 - (void)showSubtitleWithTime:(NSTimeInterval)time {
-	PLVSubtitleItem *subtitleItem = [self.parser subtitleItemAtTime:time];
-	self.viewModel.subtitleItem = subtitleItem;
+	NSDictionary * dic = [self.parser subtitleItemAtTime:time];
+    
+    PLVSubtitleItem * itme = (PLVSubtitleItem *)[dic objectForKey:@"subtitleItem_bot"];
+    PLVSubtitleItem * itmeAtTop = (PLVSubtitleItem *)[dic objectForKey:@"subtitleItem_top"];
+    
+    self.viewModel.subtitleItem = itme;
+    self.viewModel.subtitleAtTopItem = itmeAtTop;
 }
 
 @end

@@ -28,6 +28,8 @@ NSTimeInterval PLVSubtitleTimeGetSeconds(PLVSubtitleTime time);
 
 @property (nonatomic, assign) NSString *identifier;
 
+@property (nonatomic, assign) BOOL atTop;
+
 - (instancetype)initWithText:(NSString *)text start:(PLVSubtitleTime)startTime end:(PLVSubtitleTime)endTime;
 
 @end

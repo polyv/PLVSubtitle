@@ -14,6 +14,6 @@
 @property (nonatomic, strong, readonly) NSMutableArray<PLVSubtitleItem *> *subtitleItems;
 
 + (instancetype)parserWithSubtitle:(NSString *)content error:(NSError **)error;
-- (PLVSubtitleItem *)subtitleItemAtTime:(NSTimeInterval)time;
+- (NSDictionary *)subtitleItemAtTime:(NSTimeInterval)time;
 
 @end

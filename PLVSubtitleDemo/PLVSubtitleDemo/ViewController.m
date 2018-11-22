@@ -17,6 +17,8 @@
 @property (nonatomic, assign) NSTimeInterval time;
 @property (nonatomic, assign) NSTimeInterval repeatInterval;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subtitleTopLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 //@property (nonatomic, strong) PLVSubtitleParser *subtitleParser;
 //@property (nonatomic, strong) PLVSubtitleViewModel *subtitleViewModel;
@@ -39,7 +41,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	// double_srt.srt
 	//test.srt
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"double_srt.srt" ofType:nil];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"top_srt.srt" ofType:nil];
 	NSString *content = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	NSError *error = nil;
 //	PLVSubtitleParser *parser = [PLVSubtitleParser parserWithSubtitle:content error:&error];
@@ -52,7 +54,7 @@
 //	PLVSubtitleViewModel *viewModel = [[PLVSubtitleViewModel alloc] init];
 //	viewModel.subtitleLabel = self.subtitleLabel;
 //	self.subtitleViewModel = viewModel;
-	self.subtitleManager = [PLVSubtitleManager managerWithSubtitle:content label:self.subtitleLabel error:&error];
+	self.subtitleManager = [PLVSubtitleManager managerWithSubtitle:content label:self.subtitleLabel topLabel:self.subtitleTopLabel error:&error];
 	NSTimeInterval minTime = PLVSubtitleTimeGetSeconds(self.subtitleManager.subtitleItems.firstObject.startTime);
 	NSTimeInterval maxTime = PLVSubtitleTimeGetSeconds(self.subtitleManager.subtitleItems.lastObject.endTime);
 	self.progressSlider.minimumValue = minTime;
@@ -85,6 +87,16 @@
 }
 
 - (void)progressSlide:(UISlider *)sender {
+    
+    NSInteger seconds = sender.value;
+    
+    NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
+    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
+    NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
+    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+    
+    self.timeLabel.text = format_time;
+    
 	[self.subtitleManager showSubtitleWithTime:sender.value];
 }
 

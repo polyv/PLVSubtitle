@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,20 +34,51 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CnK-50-UpW">
                                 <rect key="frame" x="-2" y="386" width="324" height="31"/>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stm-HD-ATg">
+                                <rect key="frame" x="0.0" y="28" width="320" height="64"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="9ft-v2-MMz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghR-zg-zII">
+                                <rect key="frame" x="0.0" y="347" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="32s-Qt-z7C" firstAttribute="top" secondItem="CnK-50-UpW" secondAttribute="bottom" id="27y-J4-7sq"/>
+                            <constraint firstAttribute="trailing" secondItem="ghR-zg-zII" secondAttribute="trailing" id="79J-ZS-DPV"/>
+                            <constraint firstItem="ghR-zg-zII" firstAttribute="trailing" secondItem="CnK-50-UpW" secondAttribute="trailing" id="EqT-of-QpD"/>
                             <constraint firstItem="32s-Qt-z7C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JI0-mK-RLZ"/>
+                            <constraint firstItem="stm-HD-ATg" firstAttribute="top" secondItem="L3R-wT-bcA" secondAttribute="bottom" constant="8" id="Nat-af-Htz"/>
                             <constraint firstItem="CnK-50-UpW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SIg-Jn-oe6"/>
+                            <constraint firstItem="stm-HD-ATg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ylh-Ie-Nz7"/>
                             <constraint firstAttribute="trailing" secondItem="CnK-50-UpW" secondAttribute="trailing" id="bcW-oz-j7b"/>
                             <constraint firstItem="nZw-Ul-e2d" firstAttribute="top" secondItem="32s-Qt-z7C" secondAttribute="bottom" id="dGQ-tI-hvB"/>
+                            <constraint firstAttribute="trailing" secondItem="stm-HD-ATg" secondAttribute="trailing" id="ejj-iH-Da0"/>
+                            <constraint firstItem="ghR-zg-zII" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hwS-ms-OED"/>
                             <constraint firstAttribute="trailing" secondItem="32s-Qt-z7C" secondAttribute="trailing" id="mCO-pW-Ksx"/>
+                            <constraint firstItem="CnK-50-UpW" firstAttribute="top" secondItem="ghR-zg-zII" secondAttribute="bottom" constant="18" id="mz5-cf-k1Z"/>
+                            <constraint firstItem="ghR-zg-zII" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rYZ-7P-h1F"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EqT-of-QpD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="progressSlider" destination="CnK-50-UpW" id="j5k-bp-3qF"/>
                         <outlet property="subtitleLabel" destination="32s-Qt-z7C" id="pIw-5J-Uha"/>
+                        <outlet property="subtitleTopLabel" destination="stm-HD-ATg" id="yII-ag-DWN"/>
+                        <outlet property="timeLabel" destination="ghR-zg-zII" id="dGD-4j-ui7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

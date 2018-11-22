@@ -12,8 +12,10 @@
 @interface PLVSubtitleViewModel : NSObject
 
 @property (nonatomic, strong) PLVSubtitleItem *subtitleItem;
+@property (nonatomic, strong) PLVSubtitleItem *subtitleAtTopItem;
 
 @property (nonatomic, weak) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *subtitleTopLabel;
 
 @property (nonatomic, assign) BOOL enable;
 
