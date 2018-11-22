@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PLVSubtitle"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "SRT 字幕解析组件，字幕显示组件。"
   s.description  = <<-DESC
   PLVSubtitle

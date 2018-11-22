@@ -90,9 +90,9 @@
     
     NSInteger seconds = sender.value;
     
-    NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
-    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
-    NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
+    NSString *str_hour = [NSString stringWithFormat:@"%02d",seconds/3600];
+    NSString *str_minute = [NSString stringWithFormat:@"%02d",(seconds%3600)/60];
+    NSString *str_second = [NSString stringWithFormat:@"%02d",seconds%60];
     NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
     
     self.timeLabel.text = format_time;
