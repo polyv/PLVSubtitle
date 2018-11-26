@@ -13,6 +13,10 @@
 
 @property (nonatomic, strong, readonly) NSMutableArray<PLVSubtitleItem *> *subtitleItems;
 
+// 仅底部字幕
++ (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel error:(NSError **)error;
+
+// 底部字幕+顶部字幕
 + (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel topLabel:(UILabel *)subtitleTopLabel error:(NSError **)error;
 
 - (void)showSubtitleWithTime:(NSTimeInterval)time;

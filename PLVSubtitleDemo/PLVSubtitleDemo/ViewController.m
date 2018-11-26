@@ -54,7 +54,13 @@
 //	PLVSubtitleViewModel *viewModel = [[PLVSubtitleViewModel alloc] init];
 //	viewModel.subtitleLabel = self.subtitleLabel;
 //	self.subtitleViewModel = viewModel;
-	self.subtitleManager = [PLVSubtitleManager managerWithSubtitle:content label:self.subtitleLabel topLabel:self.subtitleTopLabel error:&error];
+    
+    // 创建方式1：底部字幕
+    self.subtitleManager = [PLVSubtitleManager managerWithSubtitle:content label:self.subtitleLabel error:&error];
+
+    // 创建方式2：底部字幕+顶部字幕
+//     self.subtitleManager = [PLVSubtitleManager managerWithSubtitle:content label:self.subtitleLabel topLabel:self.subtitleTopLabel error:&error];
+    
 	NSTimeInterval minTime = PLVSubtitleTimeGetSeconds(self.subtitleManager.subtitleItems.firstObject.startTime);
 	NSTimeInterval maxTime = PLVSubtitleTimeGetSeconds(self.subtitleManager.subtitleItems.lastObject.endTime);
 	self.progressSlider.minimumValue = minTime;

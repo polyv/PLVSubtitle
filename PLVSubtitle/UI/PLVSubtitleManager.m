@@ -30,6 +30,10 @@
 	return self.parser.subtitleItems;
 }
 
++ (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel error:(NSError **)error {
+    return [self managerWithSubtitle:subtitle label:subtitleLabel topLabel:nil error:error];
+}
+
 + (instancetype)managerWithSubtitle:(NSString *)subtitle label:(UILabel *)subtitleLabel topLabel:(UILabel *)subtitleTopLabel error:(NSError **)error {
 	PLVSubtitleManager *manager = [[PLVSubtitleManager alloc] init];
 	manager.parser = [PLVSubtitleParser parserWithSubtitle:subtitle error:error];
