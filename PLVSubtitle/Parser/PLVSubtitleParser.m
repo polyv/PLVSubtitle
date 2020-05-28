@@ -213,7 +213,7 @@ NS_INLINE NSString * convertSubViewerLineBreaks(NSString *currentText);
                    );
 		
 		if (!ok) {
-			if (*error != NULL) {
+			if (error) {
 				const NSUInteger contextLength = 20;
 				NSUInteger strLength = str.length;
 				NSUInteger errorLocation = [scanner scanLocation];
